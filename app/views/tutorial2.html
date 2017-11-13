@@ -1,0 +1,38 @@
+<head>
+  <title>Learning D3</title>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <ul class="items">
+    <li>This is an item</li>
+    <li>This is an item</li>
+    <li>This is an item</li>
+    <li>This is an item</li>
+    <li>This is an item</li>
+  </ul>
+
+  <script>
+    const numArray = [12, 20, 33, 40, 55, 60, 75, 80, 90]
+
+    let li = d3.select('body').selectAll('.items li')
+      .data(numArray)
+      .text(function(d) {
+        return 'This is item number ' + d;
+      })
+
+      li.enter().append('li')
+        .text(function(d) {
+          return 'This is item number ' +d;
+        })
+
+      li.exit().remove();
+
+    // d3.selectAll('.items li')
+    //   .data(numArray)
+    //   .style('font-size', function(d) {
+    //     return d +'px';
+    //   })
+
+
+  </script>
+</body>
